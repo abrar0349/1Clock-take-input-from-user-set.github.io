@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <div>
+       <h1 id = "first">00</h1>
+       <!-- <h1 id = "sec">00</h1>
+       <h1 id = "third">00</h1> -->
+       <button onclick = "Clicktime()" style='margin-top:10%;'>Set time</button>
+       </div>
+   
+   
+       </center>
+
+
+       <script>
+
+function Clicktime(){
+        let hour = prompt('Enter the hour')
+        let mint = prompt('Enter the minutes')
+        let sec = prompt('Enter the second')
+
+    document.getElementById('first').innerText = hour + " " + mint + " " + sec
+     
+    
+setInterval(() =>{
+
+let mydate = new Date()
+mydate.setHours(hour)
+mydate.setMinutes(mint)
+mydate.setSeconds(sec)
+let result = mydate.getHours()
+document.getElementById('first').innerText = result + " " + mydate.getMinutes() + " " + mydate.getSeconds()
+
+sec++
+
+if(sec == 60){
+    sec = 1
+    mint++
+    if(mint == 60){
+        mint = 1
+        hour++
+        if(hour == 24){
+            hour = 1
+        }
+    }
+}
+
+},1000 )
+
+
+}
+       </script>
+</body>
+</html>
